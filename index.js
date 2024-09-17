@@ -18,6 +18,9 @@ function getWeather(city){
         if(this.readyState === 4 && this.status === 200){
         let data = JSON.parse(this.responseText)
         printDataOnUI(data)
+        let result = data.waether[1]
+        console.log(result);
+        
         }
     }
     
@@ -64,19 +67,4 @@ function printDataOnUI(data){
     weather.append(weatherCon)
     display.append(place, weather)
 }
-
-
-function displayDateTime() {
-    const now = new Date();
-    const date = now.toLocaleDateString(); // Get the date in a readable format
-    const time = now.toLocaleTimeString(); // Get the time in a readable format
-          
-    // Set the content of the HTML elements
-    document.getElementById('date').innerText = date;
-    document.getElementById('time').innerText = time;
-}
-    
-//Call the function every second to update the time dynamically
-setInterval(displayDateTime, 1000);
-displayDateTime()
  
